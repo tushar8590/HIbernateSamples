@@ -23,14 +23,14 @@ public class MapResultRunner implements ExampleRunner{
 	@Override
 	@Transactional
 	public void run(ApplicationContext ctx) {
-		
-		  Map<String,String> data = (Map<String, String>) em.createNativeQuery(
-		  "select first_Name as fname , last_Name as lname from customer ",Tuple.
-		  class).getResultList().stream()
-				  .collect( Collectors.toMap(
-						  tuple -> ((String)((Tuple) tuple).get("fname")).toString(),
-						  tuple -> ((String)((Tuple) tuple).get("fname")).toString()
-						  ));
+
+		Map<String, String> data = (Map<String, String>) em.createNativeQuery(
+				"select first_Name as fname , last_Name as lname from customer ", Tuple.
+						class).getResultList().stream()
+				.collect(Collectors.toMap(
+						tuple -> ((String) ((Tuple) tuple).get("fname")).toString(),
+						tuple -> ((String) ((Tuple) tuple).get("fname")).toString()
+				));
 		 
 		
 		System.out.println(data.get("tushar"));	
